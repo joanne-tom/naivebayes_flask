@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+        <!--<link rel="stylesheet" href="/static/style.css">-->
+        <title>Naive Bayes App</title>
+    </head>
+    <body style="background-color: orange;">
+        <form id="predict-form" method="POST" class="d-flex flex-column justify-content-center align-items-center mt-100" style="width: 90%;">
+        <h1 class="mb-4"><u>Prediction form</u></h1>
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required>
+        <p></p>
+        <label for="salary">Salary:</label>
+        <input type="number" id="salary" name="salary" required>
+        <p></p>
+        <label for="gender">Gender(1 for Male, 0 for Female):</label>
+        <input type="number" id="gender" name="gender" required>
+        <p></p>
+        <button type="submit">Submit</button>
+        <p></p>
+    </form>
+    <div class="d-flex flex-column justify-content-center align-items-center mt-100 fs-1 fw-bold" style="width: 90%;" id="result"></div>
+    <p></p>
+    <p class="fw-bold mx-auto text-center" style="width: 90%;">This website now implements a Naive Bayes classification model using a dataset derived from Social_Network_Ads.csv, which contains demographic and behavioral data of social media users.
+        The primary goal is to predict whether a user will purchase a product based on features like Age, Gender and Estimated Salary.</p>
+    <script>
+    const form=document.getElementById('predict-form');
+    form.addEventListener('submit', async(e) => {
+        e.preventDefault();
+        const age=document.getElementById('age').value;
+        const salary=document.getElementById('salary').value;
+        const gender=document.getElementById('gender').value;
+        const response=await fetch('/predict', {
+            method: 'POST',
+            headers:{'Content-Type':'application/json'},
+            body:JSON.stringify({age,salary,gender})
+        });
+        const result=await response.json();
+        console.log(result);
+        if (result.Prediction){
+            document.getElementById('result').innerText=result.Prediction;
+        }
+        else if (result.error){
+            document.getElementById('result').innerText=result.error;
+        }
+        else{
+            document.getElementById('result').innerText='Unexpected';
+        }
+});
+    </script>
+    </body>
+</html>

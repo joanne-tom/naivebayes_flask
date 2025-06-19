@@ -1,0 +1,48 @@
+p,h1 {
+    color: forestgreen;
+    margin-bottom: 20px;
+    justify-content: center;
+}
+img{
+    display: block;
+    margin-bottom: 20px;
+    justify-content: center;
+}
+a{
+    display: block;
+    margin-bottom: 20px;
+}
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin: 0%;
+    padding:0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:fit-content;
+    background-color:orange;
+}
+form {
+    background-color: blueviolet;
+    background: scroll;
+    padding: 20px;
+    border-radius: 50px;
+    box-shadow: inset;
+}
+textarea {
+    width: fit-content;
+    height:fit-content;
+    margin-bottom: auto;
+    padding: 10px;
+}
+button {
+    padding: 10px;
+    color: crimson;
+    background-color: fuchsia;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+button:hover{
+    background-color:blue  ;
+}

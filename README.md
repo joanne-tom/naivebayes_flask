@@ -28,3 +28,8 @@ The dataset used is `Social_Network_Ads.csv`, which contains:
 ```bash
 git clone https://github.com/joanne-tom/naivebayes_flask.git
 cd naivebayes_flask
+```
+## 🌐 Live Demo
+
+🟢 Check out the live deployed app here:  
+👉 [Naive Bayes Classifier Web App](https://naivebayes-flask.onrender.com/)

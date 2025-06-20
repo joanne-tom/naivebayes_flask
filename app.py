@@ -5,7 +5,7 @@ from model.naive_bayes import loading_and_preprocessing,train_model,evaluate_mod
 
 app=Flask(__name__)
 
-dataset_path=r"C:\Users\Jonathan\Pictures\ml\naivebayes\Social_Network_Ads.csv"
+dataset_path=r"data/Social_Network_Ads.csv"
 X_train,X_test,y_train,y_test=loading_and_preprocessing(dataset_path)
 
 train_model(X_train,y_train)
